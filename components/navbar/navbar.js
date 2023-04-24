@@ -3,9 +3,12 @@ import SearchIcon from "../../images/searchIcon";
 import BagIcon from "../../images/bagIcon";
 import MenuMobile from "../../images/menuMobile";
 import { useEffect, useState } from "react";
+import MenuDropdown from "../menuDropdown";
 
-function Navbar() {
+function Navbar({ ...props }) {
 	const [isScroll, setIsScroll] = useState(false);
+	const [openMenu, setOpenMenu] = useState(false);
+
 	useEffect(() => {
 		window.onscroll = function () {
 			myFunction();
@@ -41,6 +44,14 @@ function Navbar() {
 		<BagIcon fill={isScroll ? "white" : "black"} />,
 	];
 
+	const handleOpenMenu = () => {
+		const dropdown = document.getElementById("dropdownMenu");
+		dropdown.style.height = !openMenu ? "100vh" : "0px";
+		dropdown.style.paddingTop = !openMenu ? "50px" : "0px";
+		dropdown.style.visibility = !openMenu ? "visible" : "none";
+		dropdown.style.opacity = !openMenu ? "1" : "0";
+	};
+
 	return (
 		<div
 			id="navbar"
@@ -52,21 +63,35 @@ function Navbar() {
 				})}
 			</nav>
 			<nav className="md:hidden flex justify-between w-full items-center px-2">
-				<div className="w-12">
-					<HomeIcon fill={"black"} />
+				<div className="w-12 flex justify-center">
+					<button>
+						<HomeIcon fill={"black"} />
+					</button>
 				</div>
 				<div className="flex justify-between items-center gap-3">
-					<div className="w-12">
-						<SearchIcon fill={"black"} />
+					<div className="w-12 flex justify-center">
+						<button>
+							<SearchIcon fill={"black"} />
+						</button>
 					</div>
-					<div className="w-12">
-						<BagIcon fill={"black"} />
+					<div className="w-12 flex justify-center">
+						<button>
+							<BagIcon fill={"black"} />
+						</button>
 					</div>
-					<div className="w-12">
-						<MenuMobile />
+					<div className="w-12 flex justify-center z-[300]">
+						<button
+							onClick={() => {
+								handleOpenMenu();
+								setOpenMenu(!openMenu);
+							}}
+						>
+							<MenuMobile />
+						</button>
 					</div>
 				</div>
 			</nav>
+			<MenuDropdown menu={menu} />
 		</div>
 	);
 }

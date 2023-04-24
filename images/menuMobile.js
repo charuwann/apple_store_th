@@ -1,14 +1,20 @@
 function MenuMobileIcon() {
 	return (
-		<svg width="18" height="18" viewBox="0 0 18 18" fill="white">
+		<svg
+			width="18"
+			height="18"
+			viewBox="0 0 18 18"
+			fill="white"
+			style={{ color: "black" }}
+		>
 			<polyline
 				id="globalnav-menutrigger-bread-bottom"
-				class="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"
+				className="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"
 				fill="white"
 				stroke="currentColor"
-				stroke-width="1.2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 				points="2 12, 16 12"
 			>
 				<animate
@@ -36,12 +42,12 @@ function MenuMobileIcon() {
 			</polyline>
 			<polyline
 				id="globalnav-menutrigger-bread-top"
-				class="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"
+				className="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"
 				fill="white"
 				stroke="currentColor"
-				stroke-width="1.2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 				points="2 5, 16 5"
 			>
 				<animate
