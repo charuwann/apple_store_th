@@ -1,0 +1,11 @@
+.sticky {
+  color: white;
+  background-color: #434344;
+}
+
+@media screen and (max-width:770px) {
+  .sticky {
+    color: black;
+    background-color: transparent;
+  }
+}
